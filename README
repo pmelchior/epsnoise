@@ -1,0 +1,9 @@
+epsnoise simulates pixel noise in weak-lensing ellipticity and shear measurements.
+
+It can efficiently create an intrinsic ellipticity distribution, shear it, and add noise, thereby mimicking a "perfect" measurement that is not affected by shape-measurement biases.
+
+For theoretical studies, also the Marsaglia distribution, which describes the ratio of normal variables in the general case of non-zero mean and correlation. The requires erf from scipy.special. We also added a convenience method that evaluates the Marsaglia distribution for the ratio of moments of a Gaussian-shaped brightness distribution, which gives a very good approximation of the measured ellipticity distribution also for galaxies with different radial profiles.
+
+We provide for shear estimators, two based on the epsilon ellipticity measure, two on chi. While three of them are essentially plain averages, we introduce a new estimator, which requires a functional minimization (from scipy.optimize).
+
+More background of this code is presented in the paper "Means of confusion: how pixel noise affects shear estimates for weak gravitational lensing" by Peter Melchior and Massimo Viola, which will appear on arXiv shortly.
