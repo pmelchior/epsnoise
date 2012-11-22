@@ -33,7 +33,7 @@ def addNoise(eps, nu, transform_eps=True):
     
     Calculates the moments of a Gaussian-shaped galaxy with given ellipticity
     eps and their errors, assuming a correlation of the symmetric moments
-    Q_11 and Q_22 of rho_n = 0.325.
+    Q_11 and Q_22 of rho_n = 1/3.
     Samples from a Gaussian noise distribution, such that the significance
     equals nu, then returns the ratio of the noisy moments.
 
@@ -65,9 +65,9 @@ def addNoise(eps, nu, transform_eps=True):
     dQ22 = normal(0, 1, S)
     dQ12 = normal(0, sigma_12, S)
 
-    # Q11 and Q22 are correlated with rho = 0.325
+    # Q11 and Q22 are correlated with rho = 1/3
     # need to take into account that variances of Q11 and Q22 change with e
-    rho = 0.325
+    rho = 1./3
     dQ22 = (rho*sigma_22)*dQ11 + ((sigma_22**2 - (rho*sigma_22)**2)**0.5)*dQ22
     dQ11 *= sigma_11
 
@@ -169,7 +169,7 @@ def marsaglia_eps(t, eps, nu):
 
     Calculates the moments of a Gaussian-shaped galaxy with given ellipticity
     eps and their errors, assuming a correlation of the symmetric moments
-    Q_11 and Q_22 of rho_n = 0.325, such that the image has significance nu.
+    Q_11 and Q_22 of rho_n = 1/3, such that the image has significance nu.
     Returns the Marsaglia distribution for the ratio z/w, i.e. for the
     complex ellipticity chi.
 
@@ -192,8 +192,8 @@ def marsaglia_eps(t, eps, nu):
     sigma_12 = sigma_n * (pi/4/((1+e)**3 *(1-e)**3))**0.5
     sigma_22 = sigma_n * (3*pi/4/((1+e)**5 * (1-e)))**0.5
 
-    # Q11 and Q22 are correlated with rho=0.325
-    rho = 0.325
+    # Q11 and Q22 are correlated with rho=1/3
+    rho = 1./3
     sigma_w = sqrt(sigma_11**2 + sigma_22**2 + 2*rho*sigma_11*sigma_22)
     sigma_z = sqrt(sigma_11**2 + sigma_22**2 - 2*rho*sigma_11*sigma_22)
     rho = (sigma_11**2 - sigma_22**2)/(sigma_z*sigma_w)
