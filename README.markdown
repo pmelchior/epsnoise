@@ -51,7 +51,7 @@ gamma_est = epsilon_mean(eps_, 0.999)
 ## Reference
 
 More background of this code is presented in the paper 
-*Means of confusion: how pixel noise affects shear estimates for weak gravitational lensing* by Peter Melchior and Massimo Viola: http://arxiv.org/abs/1204.5147
+*Means of confusion: how pixel noise affects shear estimates for weak gravitational lensing* by [Peter Melchior and Massimo Viola, MNRAS, 2012, 424, 2757](http://adsabs.harvard.edu/abs/2012MNRAS.424.2757M)
 
 The theory of the Marsaglia distribution is covered in section 2, the shear estimators in section 4, and the sampling procedure in Appendix B.
 
